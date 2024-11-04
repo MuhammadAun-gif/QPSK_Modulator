@@ -1,9 +1,8 @@
-
 module SIPO(input clk,rst,serial_in,
             output [3:0] parallel_out);
 
     reg [3:0] shift_reg;
-    
+
     always@(posedge clk)
     begin
         if(rst)

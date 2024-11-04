@@ -22,6 +22,10 @@ module top_level_module(input clk,rst,
         .parallel_out(sipo_parallel_out)
     );
 
+    wire [3:0] select;
+    wire [3:0] phase0,phase1,phase2,phase3,phase4,phase5,phase6,phase7,phase8,phase9,phase10,phase11,phase12,phase13,phase14,phase15;
+    wire [3:0] mux_out;
+
     Multiplexer Multiplexer(
         .select(sipo_parallel_out),
         .phase0(phase0),
@@ -47,7 +51,7 @@ module top_level_module(input clk,rst,
     assign phase2 = 4'b0010; // 45 phase
     assign phase3 = 4'b0011; // 67.5 phase
     assign phase4 = 4'b0100; // 90 phase
-    assign phase5 = 4'b0101; // 112.5 phase   8 4 2 1
+    assign phase5 = 4'b0101; // 112.5 phase  
     assign phase6 = 4'b0110; // 135 phase
     assign phase7 = 4'b0111; // 157.5 phase
     assign phase8 = 4'b1000; // 180 phase
