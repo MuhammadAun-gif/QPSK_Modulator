@@ -1,42 +1,27 @@
-module Multiplexer(input [3:0] phase0,
-                    input [3:0] phase1,
-                    input [3:0] phase2,
-                    input [3:0] phase3, 
-                    input [3:0] phase4,
-                    input [3:0] phase5,
-                    input [3:0] phase6,
-                    input [3:0] phase7,
-                    input [3:0] phase8,
-                    input [3:0] phase9,
-                    input [3:0] phase10,
-                    input [3:0] phase11,
-                    input [3:0] phase12,
-                    input [3:0] phase13,
-                    input [3:0] phase14,
-                    input [3:0] phase15,
-                    input [3:0] select,
-                    output reg [3:0] mux_out);
+module Multiplexer(input [2:0] select,
+                    output reg [2:0] mux_out);
+
+    assign phase0 = 3'b000; // 0 phase
+    assign phase1 = 3'b001; // 45 phase
+    assign phase2 = 3'b010; // 90 phase
+    assign phase3 = 3'b011; // 135 phase
+    assign phase4 = 3'b100; // 180 phase
+    assign phase5 = 3'b101; // 225 phase  
+    assign phase6 = 3'b110; // 270 phase
+    assign phase7 = 3'b111; // 315 phase
 
     always@(*)
     begin
     case(select)
-        4'b0000: mux_out = phase0;
-        4'b0001: mux_out = phase1;
-        4'b0010: mux_out = phase2;
-        4'b0011: mux_out = phase3;
-        4'b0100: mux_out = phase4;
-        4'b0101: mux_out = phase5;
-        4'b0110: mux_out = phase6;
-        4'b0111: mux_out = phase7;
-        4'b1000: mux_out = phase8;
-        4'b1001: mux_out = phase9;
-        4'b1010: mux_out = phase10;
-        4'b1011: mux_out = phase11;
-        4'b1100: mux_out = phase12;
-        4'b1101: mux_out = phase13;
-        4'b1110: mux_out = phase14;
-        4'b1111: mux_out = phase15;
-        default: mux_out = 4'b000;
+        3'b000: mux_out = phase0;
+        3'b001: mux_out = phase1;
+        3'b010: mux_out = phase2;
+        3'b011: mux_out = phase3;
+        3'b100: mux_out = phase4;
+        3'b101: mux_out = phase5;
+        3'b110: mux_out = phase6;
+        3'b111: mux_out = phase7;
+        default: mux_out = 3'b000;
     endcase
     end
 

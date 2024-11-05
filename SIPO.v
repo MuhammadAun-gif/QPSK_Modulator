@@ -1,17 +1,17 @@
 module SIPO(input clk,rst,serial_in,
-            output [3:0] parallel_out);
+            output [2:0] parallel_out);
 
-    reg [3:0] shift_reg;
+    reg [2:0] shift_reg;
 
     always@(posedge clk)
     begin
         if(rst)
         begin
-            shift_reg <= 4'b0000;
+            shift_reg <= 3'b000;
         end
         else
         begin
-            shift_reg <= {serial_in,shift_reg[3:1]};
+            shift_reg <= {serial_in,shift_reg[2:1]};
         end
     end
 
